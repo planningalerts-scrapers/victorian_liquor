@@ -89,9 +89,11 @@ license_categories = [
 field1.options[1..-1].each do |option|
   option.select
   puts "Going through #{option.value}..."
+  # next unless option.value == '3001|MELBOURNE CITY COUNCIL'
   unless scrape_index_page(form.submit)
     puts "Now have to try again in a slower way... Because someone couldn't be bothered to implement paging..."
     license_categories.each do |category|
+      puts "Fetching #{category}"
       field2.value = category
       unless scrape_index_page(form.submit)
         raise "Fuck!"
