@@ -12,7 +12,7 @@ INFO_URL = "https://liquor.justice.vic.gov.au/alarm_internet"
 COMMENT_URL = "http://responsiblealcohol.vic.gov.au/wps/portal/rav/community/concerns/objecting_to_a_liquor_licence_application"
 
 def scrape_index_page(index_page)
-  return false if index_page.at('h1').inner_text == "Sorry"
+  return false if !index_page.at('h1') || index_page.at('h1').inner_text == "Sorry"
   index_page.search('.result').each do |result|
     title = result.at(".result-title").inner_text
     fields = {}
