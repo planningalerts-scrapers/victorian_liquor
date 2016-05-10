@@ -8,8 +8,8 @@ require 'mechanize'
 require 'date'
 
 # This is the best URL to link to. Ugh. It's just the search page
-INFO_URL = "https://liquor.justice.vic.gov.au/alarm_internet"
-COMMENT_URL = "http://responsiblealcohol.vic.gov.au/wps/portal/rav/community/concerns/objecting_to_a_liquor_licence_application"
+INFO_URL = " https://liquor.vcglr.vic.gov.au/alarm_internet"
+COMMENT_URL = "http://www.vcglr.vic.gov.au/utility/community/objections+and+complaints/objecting+to+a+licence+application/"
 
 def scrape_index_page(index_page)
   return false if index_page.at('h1').inner_text == "Sorry"
@@ -56,7 +56,7 @@ agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
 #puts agent.get(url).body
 
 # I don't know about you, but I love navigating to web pages using forms. Who needs links... they're so old & simple!
-license_application_search_page = agent.post("https://liquor.justice.vic.gov.au/alarm_internet/alarm_internet.ASP?WCI=index_action&amp;WCU", :index_action_flag => 8, :login_flag => 0)
+license_application_search_page = agent.post(" https://liquor.vcglr.vic.gov.au/alarm_internet/alarm_internet.ASP?WCI=index_action&amp;WCU", :index_action_flag => 8, :login_flag => 0)
 
 form = license_application_search_page.forms_with(:name => "form1").first
 field1 = form.field_with(:name => "local_gov_area")
