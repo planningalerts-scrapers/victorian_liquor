@@ -56,7 +56,7 @@ agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
 #puts agent.get(url).body
 
 # I don't know about you, but I love navigating to web pages using forms. Who needs links... they're so old & simple!
-license_application_search_page = agent.post(" https://liquor.vcglr.vic.gov.au/alarm_internet/alarm_internet.ASP?WCI=index_action&amp;WCU", :index_action_flag => 8, :login_flag => 0)
+license_application_search_page = agent.post("https://liquor.vcglr.vic.gov.au/alarm_internet/alarm_internet.ASP?WCI=index_action&amp;WCU", :index_action_flag => 8, :login_flag => 0)
 
 form = license_application_search_page.forms_with(:name => "form1").first
 field1 = form.field_with(:name => "local_gov_area")
