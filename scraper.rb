@@ -8,7 +8,7 @@ require 'mechanize'
 require 'date'
 
 # This is the best URL to link to. Ugh. It's just the search page
-INFO_URL = " https://liquor.vcglr.vic.gov.au/alarm_internet"
+INFO_URL = "https://liquor.vcglr.vic.gov.au/alarm_internet"
 COMMENT_URL = "http://www.vcglr.vic.gov.au/utility/community/objections+and+complaints/objecting+to+a+licence+application/"
 
 def scrape_index_page(index_page)
