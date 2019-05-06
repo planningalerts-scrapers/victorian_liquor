@@ -35,13 +35,9 @@ def scrape_index_page(index_page)
       #puts notice_text
       record['on_notice_from'] = Date.strptime(date1, '%d/%m/%Y').to_s
       record['on_notice_to'] = Date.strptime(date2, '%d/%m/%Y').to_s
-    end    
-
-    if (ScraperWiki.select("* from data where `council_reference`='#{record['council_reference']}'").empty? rescue true)
-      ScraperWiki.save_sqlite(['council_reference'], record)
-    else
-      puts "Skipping already saved record " + record['council_reference']
     end
+
+    ScraperWiki.save_sqlite(['council_reference'], record)
   end
   true
 end
